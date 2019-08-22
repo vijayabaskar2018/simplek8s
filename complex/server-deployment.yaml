@@ -16,4 +16,4 @@ spec:
         - name: server
           image: stephengrider/multi-server
           ports:
-            containerPort: 5000
+            - containerPort: 5000
