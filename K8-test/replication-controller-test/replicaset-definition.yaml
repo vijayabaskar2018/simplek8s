@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-rs
+  labels:
+    app: Flexipay
+    type: front-end
+  annotations:
+    buildversion: "1.2"
+    author: "vj"
+
+spec:
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: Flexipay
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+  replicas: 2
+  selector:
+    matchLabels:
+      app: Flexipay
+      type: front-end

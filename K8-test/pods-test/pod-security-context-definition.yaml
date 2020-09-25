@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-secutiy-context
+spec:
+  securityContext:
+    runAsUser: 1000
+  containers:
+    - image: ubuntu
+      name: web-os-sample
+      securityContext:
+        runAsUser: 1000
+        capabilities:
+          add: ["MAC_ADMIN"]

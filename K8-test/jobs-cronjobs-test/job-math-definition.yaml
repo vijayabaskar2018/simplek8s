@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: math-add-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: math-add-job
+          image: alpine
+          command: ["expr"]
+          args: ["5", "+", "6"]
+      restartPolicy: Never

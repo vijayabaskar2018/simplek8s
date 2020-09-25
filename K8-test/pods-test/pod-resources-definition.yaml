@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-resource
+spec:
+  containers:
+    - image: sample-color-app
+      name: sample-color-container-resource
+      ports:
+        - containerPort: 8080
+      resources:
+        requests:
+          memory: "256M"
+          cpu: 0.5
+        limits:
+          memory: "2G"
+          cpu: 1

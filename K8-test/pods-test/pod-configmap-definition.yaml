@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-configmap1
+spec:
+  containers:
+    - image: sample-color-app
+      name: sample-color-container1
+      ports:
+        - containerPort: 8080
+      envFrom:
+        - configMapRef:
+            name: my-config-map

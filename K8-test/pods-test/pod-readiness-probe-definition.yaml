@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-ready-probe
+spec:
+  containers:
+    - image: sample-color-app
+      name: sample-color-container-resource 
+      ports:
+        - containerPort: 8080
+      readinessProbe:
+        httpGet:
+          path: /api/ready 
+          port: 8080
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        failureThreshold: 5 
+        tcpSocket:
+          port: 3306
+        exec:
+          command:
+            - cat
+            - /app/is_ready

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: math-pod
+  namespace: default
+spec:
+  containers:
+    - name: math-pod-container
+      image: alpine
+      args: ["expr", "5", "+", "7"]
+  restartPolicy: Never

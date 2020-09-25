@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+  namespace: default
+  labels:
+    app: Flexipay
+    type: front-end
+spec:
+  template:
+    metadata:
+      name: test-deployment-pod
+      labels:
+        app: Flexipay
+        type: front-end
+    spec:
+      containers:
+        - image: nginx:1.7.2
+          name: deployment-nginx-container
+  replicas: 3
+  selector:
+    matchLabels:
+      app: Flexipay
+      type: front-end
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
